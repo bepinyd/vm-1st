@@ -1,5 +1,7 @@
 #ifndef clox_compiler_h
 #define clox_compiler_h
+#include "chunk.h"
+bool compile(const char* source, Chunk* chunk) {
 typedef enum {
 // Single-character tokens.
 TOKEN_LEFT_PAREN, TOKEN_RIGHT_PAREN,
@@ -27,5 +29,6 @@ const char* start;
 int length;
 int line;
 } Token;
+}
 void compile(const char* source);
 #endif
