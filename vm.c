@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include "common.h"
 #include "debug.h"
+#include "compiler.h"
 #include "vm.h"
 VM vm;
 static void resetStack() {
@@ -66,8 +67,7 @@ return INTERPRET_OK;
 #undef READ_CONSTANT
 #undef BINARY_OP
 }}
-InterpretResult interpret(Chunk* chunk) {
-vm.chunk = chunk;
-vm.ip = vm.chunk->code;
-return run();
+InterpretResult interpret(const char* source) {
+compile(source);
+return INTERPRET_OK;
 }
